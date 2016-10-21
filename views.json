@@ -1,5 +1,4 @@
 {
 
   "views": ["DEV", "SIT", "UAT", "PROD"]
-
 }

@@ -1,16 +1,28 @@
-def views_json = readFileFromWorkspace("hello-dsl", "views.json")
+def views_json = readFileFromWorkspace("views.json")
 def views = new groovy.json.JsonSlurper().parseText(views_json)["views"]
+
+def tasks_json = readFileFromWorkspace("tasks.json")
+def tasks = new groovy.json.JsonSlurper().parseText(views_json)["tasks"]
+
+
+def gitCred = "c79906d0-32e2-41bd-bcef-5d447125a3eb"
+def gitURL = "https://github.com/pbuditi/pradeep-apps.git"
 
 views.each { view ->
 
-	(0..4).each { i -> 
+	tasks.each { task -> 
 
-		job("${view}-dsl-example-${i}") {
+		job("${view}-dsl-example-${task}") {
 			scm {
-				 git("https://github.com/pbuditi/pradeep-apps.git")
+				git {
+					remote {
+				 		url(gitURL)
+				 		credentials(gitCred)
+					}
+				}
 			}
 			steps {
-				shell('echo "this is job${i}"')
+				shell("echo this is job ${task}")
 			}
 		}
 	}

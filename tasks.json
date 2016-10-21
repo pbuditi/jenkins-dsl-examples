@@ -1,0 +1,4 @@
+{
+
+  "tasks": ["sql-deploy", "core-app", "components", "db-objects"]
+}
