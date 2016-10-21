@@ -4,7 +4,7 @@ def views = new groovy.json.JsonSlurper().parseText(views_json)["views"]
 def tasks_json = readFileFromWorkspace("tasks.json")
 def tasks = new groovy.json.JsonSlurper().parseText(tasks_json)["tasks"]
 
-def env_json = readFileFromWorkspace("DEV.json")
+def env_json = readFileFromWorkspace("${view}.json")
 def env = new groovy.json.JsonSlurper().parseText(env_json)
 
 
@@ -12,6 +12,9 @@ def gitCred = "c79906d0-32e2-41bd-bcef-5d447125a3eb"
 def gitURL = "https://github.com/pbuditi/pradeep-apps.git"
 
 views.each { view ->
+
+	def env_json = readFileFromWorkspace("${view}.json")
+	def env = new groovy.json.JsonSlurper().parseText(env_json)
 
 	tasks.each { task -> 
 
@@ -27,6 +30,7 @@ views.each { view ->
 			steps {
 				shell("echo this is job ${task}")
 				shell("echo this is job ${env.name}")
+				shell("sqlplus ${env.dbUser}@${env.ConnectionString}")
 			}
 		}
 	}

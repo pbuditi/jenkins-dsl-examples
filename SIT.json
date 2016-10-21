@@ -1,0 +1,10 @@
+{
+
+	"name" : "SIT",
+	"description" : "SIT environment",
+	"Owner" : "Prad",
+	"ConnectionString" : "10.0.0.0/SIT",
+	"dbUser": "SITuser",
+	"dbpasswd": "e152def3-c8a6-4572-aa6f-f3386faf81e5"
+
+}

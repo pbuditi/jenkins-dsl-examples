@@ -1,0 +1,10 @@
+{
+
+	"name" : "PROD",
+	"description" : "Production environment",
+	"Owner" : "pradeep",
+	"ConnectionString" : "10.0.0.0/Prod",
+	"dbUser": "ProdUser",
+	"dbpasswd": "e152def3-c8a6-4572-aa6f-f3386faf81e5"
+
+}
