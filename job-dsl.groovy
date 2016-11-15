@@ -44,6 +44,8 @@ def createComponentJob(def ciJobName, def gitURLL, def gitCredd, def envv) {
 
 
 
+views.each { view ->
+	
 	listView(view) {
 
 		jobs {
